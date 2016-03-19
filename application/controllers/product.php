@@ -10,12 +10,21 @@ class Product extends CI_Controller {
 
     public function index() {
 
+        //get all products
+        $this->load->model('product_model');
+        $data['products'] = $this->product_model->get_products();
 
-        $data['name'] = 'adisha';
+        //to view
         $data['main_content'] = 'product';
+        $this->load->view('include/main', $data);
+    }
 
+    public function details($id) {
 
+        $this->load->model('product_model');
+        $data['product'] = $this->product_model->get_product($id);
 
+        $data['main_content'] = 'details';
         $this->load->view('include/main', $data);
     }
 }
