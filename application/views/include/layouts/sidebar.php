@@ -31,11 +31,10 @@
         <h3 class="panel-title">Categories</h3>
     </div>
     <ul class="list-group">
-        <li class="list-group-item">Xbox One Games</li>
-        <li class="list-group-item">PS4 games</li>
-        <li class="list-group-item">UbiSoft Games</li>
-        <li class="list-group-item">Xbox 360 Games</li>
-        <li class="list-group-item">PS3 Games</li>
+        <?php foreach(get_categories_h() as $category): ?>
+        <li class="list-group-item"><a href="product/category/<?php echo $category->id; ?>"><?php echo $category->name; ?></a></li>
+
+        <?php endforeach; ?>
     </ul>
 </div>
 <div class="panel panel-default panel-list">
@@ -43,9 +42,10 @@
         <h3 class="panel-title">Most Popular</h3>
     </div>
     <ul class="list-group">
-        <li class="list-group-item">Xbox One Games</li>
-        <li class="list-group-item">PS4 games</li>
-        <li class="list-group-item">UbiSoft Games</li>
-        <li class="list-group-item">Xbox 360 Games</li>
-        <li class="list-group-item">PS3 Games</li>
+        <?php foreach(get_popular_h() as $popular): ?>
+
+            <li class="list-group-item"><a href="product/details/<?php echo $popular->id; ?>"><?php echo $popular->title; ?></a></li>
+
+        <?php endforeach; ?>
+
     </ul>
